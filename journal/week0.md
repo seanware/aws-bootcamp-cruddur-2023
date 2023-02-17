@@ -3,8 +3,10 @@
 ### Diagrams 
 
 [Logical Diagram](https://lucid.app/lucidchart/044d54be-c09b-4c09-a18f-f1ddf1b44387/edit?viewport_loc=-221%2C13%2C2261%2C1116%2C0_0&invitationId=inv_04dab94d-d5c4-4b5d-b7eb-eaa960765da1)
+![Logical Diagram](./assets/Cruddur-Conceptual%20Diagram.png)
 
 [Architectural Diagram](https://lucid.app/lucidchart/ec7097f7-4001-4f8b-999c-3e8081fcba10/edit?viewport_loc=-116%2C11%2C2261%2C1116%2C0_0&invitationId=inv_cef4b7df-11ee-41a9-8785-39c3bade6d48)
+![Architetural Diagram](./assets/Crudder%20Logical%20Architectural%20Diagram.png)
 
 ###  User setup
 
@@ -95,6 +97,7 @@ I subsequently deleted the CloudTrail log because it was using up a large portio
 ### Challenges
 
 [CI/CD Architectural Diagram](https://lucid.app/lucidchart/19a3aca2-8157-406d-a03c-b5e9d1d2c3c1/edit?viewport_loc=-268%2C-31%2C2261%2C1116%2C0_0&invitationId=inv_a18fe3aa-726c-4104-bba0-a6e70c66923e)
+![CI/CD Diagram](./assets/CI_CD%20Diagram.png)
 
 
 
@@ -121,6 +124,7 @@ In the image below I have requested an increase in DynamoDB from 40000 read oper
 [Health Update](https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html)
 
 [CI/CD Diagram](https://github.com/acantril/learn-cantrill-io-labs/tree/master/aws-codepipeline-catpipeline)
+
 
 
 
