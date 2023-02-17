@@ -8,6 +8,9 @@
 [Architectural Diagram](https://lucid.app/lucidchart/ec7097f7-4001-4f8b-999c-3e8081fcba10/edit?viewport_loc=-116%2C11%2C2261%2C1116%2C0_0&invitationId=inv_cef4b7df-11ee-41a9-8785-39c3bade6d48)
 ![Architetural Diagram](./assets/Crudder%20Logical%20Architectural%20Diagram.png)
 
+Napkin Diagram
+![Napkin Drawing](./assets/napkin.png)
+
 ###  User setup
 
 MFA was created for IAM 
