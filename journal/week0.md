@@ -55,26 +55,41 @@ aws sts get-caller-identity
 Output
 ```
 {
-    "UserId": "AIDAZM7LQBKLVCVL2P...",
-    "Account": "646349589...",
-    "Arn": "arn:aws:iam::646349589143:user/Crudder_user"
+    "UserId": "AIDAZM7LQBKLVCVL2PVKU",
+    "Account": "########9143",
+    "Arn": "arn:aws:iam::########9143:user/Crudder_user"
 }
 ```
 
 ### Monitoring
 
-Billing alarms were created when price is at or above $1.00
+Billing alarms were created using the CLI when price is at or above $1.00
+
 
 ![Billing_Alarm](./assets/bill_raw.png)
 
-SNS topic was created to receive the billing alarm
+SNS topic was created using the CLI to receive the billing alarm
+```
+aws sns subscribe \
+    --topic-arn arn:aws:sns:us-east-2:########9143:billing-alarm \
+    --protocol email \
+    --notification-endpoint $EMAIL
+```
 ![SNS_topic](./assets/SNS_topic.png)
 
-Budget is set at $1.00 and uses te ZeroBudget template
+Budget is set at $1.00 using the CLI
+```
+aws budgets create-budget \
+    --account-id $aws_ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/notifications-with-subscribers.json
+```
 ![Budget](./assets/Budget.png)
 
 *__CloudTrail__* was set up to record the API calls in AWS and store the log files in an S3 Bucket
 ![Cloud_Trail](./assets/CloudTrail.png)
+
+I subsequently deleted the CloudTrail log because it was using up a large portion of my free tier for S3 by storing log files.
 
 
 ### Challenges
@@ -83,8 +98,21 @@ Budget is set at $1.00 and uses te ZeroBudget template
 
 
 
-EC2 Health alert was created for the us-east-2 region with AWS eventbridge used to monitor EC2 heatlh and a SNS topic to notify me by email of the changes
+EC2 Health alert was created for the us-east-2 region with AWS eventbridge used to monitor EC2 heatlh and a SNS topic is used to notify me by email of the changes
 ![EC_2 Health](./assets/EC2_status.png)
+
+Some applications may require an increase in the amount of resources AWS allows it to use.  This can be done by acessing the aws service quotas console. You can log in to your user account and a dashboard will display of all the curret services in use and their associated limits.  
+
+[Service Quota Console](https://console.aws.amazon.com/servicequotas/home)
+
+
+This console will display all the services being used by a particular account and describe each service and indicate its service limits.
+![Service Quota Dashboard](./assets/Service_Console.png)
+
+From this console you can request an increase to the service limits.
+In the image below I have requested an increase in DynamoDB from 40000 read operations to 50000
+
+![Request for Increase Service](./assets/DynamoDB_request.png)
 
 
 
@@ -93,5 +121,6 @@ EC2 Health alert was created for the us-east-2 region with AWS eventbridge used 
 [Health Update](https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html)
 
 [CI/CD Diagram](https://github.com/acantril/learn-cantrill-io-labs/tree/master/aws-codepipeline-catpipeline)
+
 
 
