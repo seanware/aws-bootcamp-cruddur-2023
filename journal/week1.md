@@ -252,6 +252,61 @@ healthcheck:
   retries: 5
 ```
 
+*Remote Docker on EC2*
+
+I was able to set up an EC2 instance, install docker on that instance and pull and linux image.  
+
+I first created the image at the command line using AWS Cloudshell, which required me to find the VPC id, Subnet ID and Amazon Machine Image ID.  For the machine image I chose ubuntu linux because that operating system and common to other cloud providers and is similar to my local machine.
+
+The first step in creating the image was creating a security group
+```bash
+aws ec2 create-security-group \
+    --group-name d-sec \
+    --description "Docker Demo" \
+    --tag-specifications 'ResourceType=security-group,Tags=[{Key=Name,Value=docker-demo}]' \
+    --vpc-id vpc-#########3069
+```
+
+Secondly, the ingress firewalls had to be put into place
+```bash
+aws ec2 authorize-security-group-ingress \
+    --group-id sg-###########de0e \
+    --protocol tcp \
+    --port 22 \
+    --cidr "0.0.0.0/0" 
+
+```
+
+Third, I created a key-pair
+```bash
+aws ec2 create-key-pair \
+    --key-name dck-key \
+    --key-type rsa \
+    --key-format pem \
+    --query "KeyMaterial" \
+    --output text > dck-key.pem 
+
+```
+
+Finally, I created the instance
+```bash
+aws ec2 run-instances \
+    --image-id ami-############73771\
+    --count 1 \
+    --instance-type t2.micro \
+    --key-name dck-key \
+    --security-group-ids sg-############de0e \
+    --subnet-id subnet-############850f1 \
+    --block-device-mappings "[{\"DeviceName\":\"/dev/sdf\",\"Ebs\":{\"VolumeSize\":30,\"DeleteOnTermination\":false}}]" \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=docker-demo}]' 'ResourceType=volume,Tags=[{Key=Name,Value=docker-server-disk}]'
+```
+
+Once the instance was created I installed docker like I did on my local machine and pulled a linux alpine image.
+![EC2_instance](./assets/Remote_dck.png)
+
+
+
+
 
 ### References
 [1] https://docs.docker.com/engine/install/ubuntu/
