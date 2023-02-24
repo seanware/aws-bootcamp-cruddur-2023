@@ -111,7 +111,7 @@ And we added a vscode extension
 - cweijan.vscode-postgresql-client2
 ```
 
-The postgres comtainer could have its installation verified by using
+The postgres container could have its installation verified by using
 ```bash
 psql -U postgres --host localhost
 ```
