@@ -4,6 +4,9 @@ services:
     environment:
       FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
       BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io/"
+      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
+      OTEL_SERVICE_NAME: "backend-flask"
     build: ./backend-flask
     ports:
       - "4567:4567"
@@ -12,7 +15,7 @@ services:
       interval: 60s
       retries: 5
       start_period: 20s
-      timeout: 10s
+      timeout: 10s    
     volumes:
       - ./backend-flask:/backend-flask
   frontend-react-js:
@@ -26,7 +29,7 @@ services:
       interval: 60s
       retries: 5
       start_period: 20s
-      timeout: 10s
+      timeout: 10s    
     volumes:
       - ./frontend-react-js:/frontend-react-js
   dynamodb-local:
@@ -48,12 +51,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     ports:
-      - '5432:5432'
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - '5432:5432'    
     volumes: 
       - db:/var/lib/postgresql/data
 # the name flag is a hack to change the default prepend folder
