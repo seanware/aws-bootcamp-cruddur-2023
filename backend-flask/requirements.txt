@@ -17,3 +17,4 @@ opentelemetry-semantic-conventions==0.37b0
 opentelemetry-util-http==0.37b0
 protobuf==4.22.0
 Werkzeug==2.2.3
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
