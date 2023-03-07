@@ -25,3 +25,4 @@ rollbar==0.16.3
 s3transfer==0.6.0
 watchtower==3.0.1
 Werkzeug==2.2.3
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
