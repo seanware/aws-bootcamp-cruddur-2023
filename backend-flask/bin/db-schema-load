@@ -5,8 +5,22 @@ NO_COLOR='\033[0m'
 LABEL="db-schema-load"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
+if [ "$1" = "prod" ]; then
+   URL=$PROD_CONNECTION_URL
+else
+   URL=$CONNECTION_URL
+fi
+
 schema_path="$(realpath .)/db/schema.sql"
 
 echo $schema_path
 
-psql $CONNECTION_URL cruddur < $schema_path
+if [ "$1" = "prod" ]; then
+   echo "Production Database"
+   URL=$PROD_CONNECTION_URL
+else
+   echo "local environment"
+   URL=$CONNECTION_URL
+fi
+
+psql $URL cruddur < $schema_path
