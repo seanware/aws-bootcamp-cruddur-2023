@@ -27,3 +27,6 @@ watchtower==3.0.1
 Werkzeug==2.2.3
 
 Flask-AWSCognito
+
+psycopg[binary]
+psycopg[pool]
