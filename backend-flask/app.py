@@ -135,7 +135,7 @@ def data_message_groups():
 
 @app.route("/api/messages/@<string:handle>", methods=['GET'])
 def data_messages(handle):
-  user_sender_handle = 'andrewbrown'
+  user_sender_handle = 'sean'
   user_receiver_handle = request.args.get('user_reciever_handle')
 
   model = Messages.run(user_sender_handle=user_sender_handle, user_receiver_handle=user_receiver_handle)
@@ -148,7 +148,7 @@ def data_messages(handle):
 @app.route("/api/messages", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_create_message():
-  user_sender_handle = 'andrewbrown'
+  user_sender_handle = 'sean'
   user_receiver_handle = request.json['user_receiver_handle']
   message = request.json['message']
 
@@ -204,7 +204,7 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  user_handle  = 'andrewbrown'
+  user_handle  = 'sean'
   message = request.json['message']
   ttl = request.json['ttl']
   model = CreateActivity.run(message, user_handle, ttl)
@@ -222,7 +222,7 @@ def data_show_activity(activity_uuid):
 @app.route("/api/activities/<string:activity_uuid>/reply", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities_reply(activity_uuid):
-  user_handle  = 'andrewbrown'
+  user_handle  = 'sean'
   message = request.json['message']
   model = CreateReply.run(message, user_handle, activity_uuid)
   if model['errors'] is not None:
