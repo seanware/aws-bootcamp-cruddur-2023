@@ -7,10 +7,7 @@ def lambda_handler(event, context):
     print('userAttributes')# for debugging
     print(user)# for debugging
 
-    user_display_name  = user['name']
-    user_email         = user['email']
-    user_handle        = user['preferred_username']
-    user_cognito_id    = user['sub']
+    
     try:
       print('entered-try') # for debugging
       sql = """
@@ -32,10 +29,10 @@ def lambda_handler(event, context):
       conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
       cur = conn.cursor()
       params = {
-        user_display_name : user['name'],
-    user_email : user['email'],
-    user_handle : user['preferred_username'],
-    user_cognito_id : user['sub'],
+        'user_display_name' : user['name'],
+        'user_emails' : user['email'],
+        'user_handle' : user['preferred_username'],
+        'user_cognito_id' : user['sub']
       }
       cur.execute(sql, params)
       conn.commit() 
