@@ -84,7 +84,7 @@ I need to be able to connect to the local and RDS instances of our databases and
 CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
 
 #production instance
-PROD_CONNECTION_URL="postgresql://cruddurroot:###########@cruddur-db-instance.ctrhhf3ao98o.us-east-2.rds.amazonaws.com:5432/cruddur"
+PROD_CONNECTION_URL="postgresql://cruddurroot:###########@cruddur-db-instance.ctrhhf######.us-east-2.rds.amazonaws.com:5432/cruddur"
 
 ```
 
