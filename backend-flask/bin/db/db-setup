@@ -3,7 +3,7 @@
 -e #Stop if it a command fails
 
 
-bin_path="$(realpath .)/bin"
+bin_path="$(realpath .)/bin/db"
 
 source "$bin_path/db-drop"
 source "$bin_path/db-create"
