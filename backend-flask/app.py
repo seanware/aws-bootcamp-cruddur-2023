@@ -96,10 +96,14 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 
-@app.route('/rollbar/test')
-def rollbar_test():
-    rollbar.report_message('Hello World!', 'warning')
-    return "Hello World!"
+@app.route('/api/health-check')
+def health_check():
+  return {'success': True}, 200
+
+#@app.route('/rollbar/test')
+#def rollbar_test():
+#    rollbar.report_message('Hello World!', 'warning')
+#    return "Hello World!"
 
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
 @app.before_first_request
