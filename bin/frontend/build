@@ -12,6 +12,6 @@ docker build \
 --build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
 --build-arg REACT_APP_AWS_USER_POOLS_ID="us-east-2_Dz6W2ZQu2" \
 --build-arg REACT_APP_CLIENT_ID="2h2hh4qoh8us0skksr4ailpq0t" \
--t frontend-react-js \
+-t frontend-react-js-prod \
 -f "$FRONTEND_REACT_JS_PATH/Dockerfile.prod" \
 "$FRONTEND_REACT_JS_PATH/."
