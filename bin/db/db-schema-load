@@ -1,5 +1,11 @@
 #! /usr/bin/bash
 
+ABS_PATH=$(readlink -f "$0")
+DB_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $DB_PATH)
+PROJECT_PATH=$(dirname $BIN_PATH)
+
+
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="db-schema-load"
@@ -11,7 +17,7 @@ else
    URL=$CONNECTION_URL
 fi
 
-schema_path="$(realpath .)/db/schema.sql"
+schema_path=""$PROJECT_PATH/backend-flask/db/schema.sql""
 
 echo $schema_path
 
