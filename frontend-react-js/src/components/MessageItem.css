@@ -2,8 +2,10 @@
   display: flex;
   align-items: start;
   overflow: hidden;
-  border-bottom: solid 1px rgb(31,36,49);
-  padding: 16px;
+  border-bottom: solid 1px rgba(50, 95, 209, 0.808);
+  padding: 16px;  
+}
+.message_item .avatar {
   cursor: pointer;
   text-decoration: none;
 }

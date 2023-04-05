@@ -9,6 +9,8 @@ printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"
 ABS_PATH=$(readlink -f "$0")
 DB_PATH=$(dirname $ABS_PATH)
 
+echo $DB_PATH
+
 source "$DB_PATH/db-drop"
 source "$DB_PATH/db-create"
 source "$DB_PATH/db-schema-load"

@@ -33,7 +33,7 @@ tasks:
       cd backend-flask
   - name: docker-ecs
     command: |
-      source "$THEIA_WORKSPACE_ROOT/ecr/login"
+      source "$THEIA_WORKSPACE_ROOT/bin/ecr/login"
       docker network create cruddur-net
  
 
