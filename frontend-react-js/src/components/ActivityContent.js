@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { DateTime } from 'luxon';
 import {ReactComponent as BombIcon} from './svg/bomb.svg';
 import { format_datetime, time_ago } from '../lib/DateTimeFormats';
-
+//Implemented timezone fix
 export default function ActivityContent(props) {
   
   let expires_at;

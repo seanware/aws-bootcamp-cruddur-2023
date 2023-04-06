@@ -15,6 +15,7 @@ attrs = {
   'endpoint_url': 'http://localhost:8000'
 }
 # unset endpoint url for use with production database
+# implemented timezone fix
 if len(sys.argv) == 2:
   if "prod" in sys.argv[1]:
     attrs = {}

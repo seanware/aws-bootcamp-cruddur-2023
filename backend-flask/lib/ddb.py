@@ -172,4 +172,6 @@ class Ddb:
     except botocore.exceptions.ClientError as e:
       print('== create_message_group.error')
       print(e)
+
+  #Implemented timezone update
     
