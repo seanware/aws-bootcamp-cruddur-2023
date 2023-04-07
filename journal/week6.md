@@ -1,4 +1,4 @@
-# Week 6-- Deploying Containers
+# Week 6 Deploying Containers
 
 ### Set up ECR
 
@@ -82,7 +82,7 @@ aws ec2 authorize-security-group-ingress \
 
 Python base image was placed the AWS ECR because Dockerhub may have technical issues
 
-Set ecr enviromental variables for AWS ECR for the python base image
+Set ecr environmental variables for AWS ECR for the python base image
 ```sh
 export ECR_PYTHON_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/cruddur-python"
 echo $ECR_PYTHON_URL
@@ -171,7 +171,7 @@ aws ssm put-parameter --type "SecureString" --name "/cruddur/backend-flask/OTEL_
 
 *Set up Task Roles*
 
-CrudderServiceExectionRole was created for 
+CrudderServiceExecutionRole was created for 
 ```sh
 aws iam create-role \
     --role-name CruddurServiceExecutionRole \
