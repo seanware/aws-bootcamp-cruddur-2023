@@ -6,6 +6,8 @@ Put the ECS services behind and load balancer to manage traffic and create route
 
 SITE NAME: [drummer-test-app.online](https://drummer-test-app.online/)
 
+![Site Name](./assets/Site.png)
+
 ### Create Application Load Balancer
 
 *Trouble Shooting*
