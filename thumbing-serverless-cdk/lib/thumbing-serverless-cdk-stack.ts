@@ -9,10 +9,16 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
 
     const bucketName: string = process.env.THUMBING_BUCKET_NAME as string;
 
-    const bucket = new s3.Bucket(this, 'ThumbingBucket', {
+    const bucket = this.createBucket(bucketName)    
+  
+  }
+
+  createBucket(bucketName: string): s3.IBucket {
+    const logicalName: string = 'ThumbingBucket';
+    const bucket = new s3.Bucket(this, logicalName , {
       bucketName: bucketName,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
-  
+    return bucket;
   }
 }
