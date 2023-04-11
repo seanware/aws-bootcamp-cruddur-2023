@@ -16,7 +16,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const uploadsBucketName: string = process.env.UPLOADS_BUCKET_NAME as string;
+    // const uploadsBucketName: string = process.env.UPLOADS_BUCKET_NAME as string;
     const assetsBucketName: string = process.env.ASSETS_BUCKET_NAME as string;
     const folderInput: string = process.env.THUMBING_S3_FOLDER_INPUT as string;
     const folderOutput: string = process.env.THUMBING_S3_FOLDER_OUTPUT as string;
@@ -24,15 +24,15 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     const topicName: string = process.env.THUMBING_TOPIC_NAME as string;
     const functionPath: string = process.env.THUMBING_FUNCTION_PATH as string;
 
-    const uploadsBucket = this.createBucket(uploadsBucketName);
+    // const uploadsBucket = this.createBucket(uploadsBucketName);
     const assetsBucket = this.importBucket(assetsBucketName);
-    console.log('uploadsBucketName',)
+    // console.log('uploadsBucketName',)
     console.log('assetsBucketName',assetsBucketName)
 
-    const lambda = this.createLambda(folderInput,folderOutput,functionPath,bucketName)
+    const lambda = this.createLambda(folderInput,folderOutput,functionPath,assetsBucketName)
 
     
-    const s3UploadsReadWritePolicy = this.createPolicyBucketAccess(uploadsBucket.bucketArn)
+    const s3UploadsReadWritePolicy = this.createPolicyBucketAccess(assetsBucket.bucketArn)
     const s3AssetsReadWritePolicy = this.createPolicyBucketAccess(assetsBucket.bucketArn)
 
     lambda.addToRolePolicy(s3UploadsReadWritePolicy);
@@ -42,7 +42,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     this.createSnsSubscription(snsTopic,webhookUrl)
     
 
-    this.createS3NotifyToLambda(folderInput,lambda,uploadsBucket)
+    this.createS3NotifyToLambda(folderInput,lambda,assetsBucket)
     this.createS3NotifyToSns(folderOutput,snsTopic,assetsBucket)
   }
 
