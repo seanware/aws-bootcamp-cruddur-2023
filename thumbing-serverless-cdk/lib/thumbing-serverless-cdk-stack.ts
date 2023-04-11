@@ -17,7 +17,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     super(scope, id, props);
 
     // const uploadsBucketName: string = process.env.UPLOADS_BUCKET_NAME as string;
-    const assetsBucketName: string = process.env.ASSETS_BUCKET_NAME as string;
+    const assetsBucketName: string = process.env.THUMBING_BUCKET_NAME as string;
     const folderInput: string = process.env.THUMBING_S3_FOLDER_INPUT as string;
     const folderOutput: string = process.env.THUMBING_S3_FOLDER_OUTPUT as string;
     const webhookUrl: string = process.env.THUMBING_WEBHOOK_URL as string;
