@@ -2,8 +2,8 @@ const {getClient, getOriginalImage, processImage, uploadProcessedImage} = requir
 
 async function main(){
   client = getClient()
-  const srcBucket = 'assets.drummer-test-app'
-  const srcKey = 'avatar/original/data.jpg'
+  const srcBucket = 'uploads.drummer-test-app'
+  const srcKey = 'avatar/uploads/data.jpg'
   const dstBucket = 'assets.drummer-test-app'
   const dstKey = 'avatar/processed/data.png'
   const width = 256

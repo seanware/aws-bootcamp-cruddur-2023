@@ -16,7 +16,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const uploadsBucketName: string = process.env.UPLOADS_BUCKET_NAME as string;
+    const uploadBucketName: string = process.env.UPLOADS_BUCKET_NAME as string;
     const assetsBucketName: string = process.env.THUMBING_BUCKET_NAME as string;
     const folderInput: string = process.env.THUMBING_S3_FOLDER_INPUT as string;
     const folderOutput: string = process.env.THUMBING_S3_FOLDER_OUTPUT as string;
@@ -24,15 +24,15 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     const topicName: string = process.env.THUMBING_TOPIC_NAME as string;
     const functionPath: string = process.env.THUMBING_FUNCTION_PATH as string;
 
-    const uploadsBucket = this.createBucket(uploadsBucketName);
+    const uploadBucket = this.createBucket(uploadBucketName);
     const assetsBucket = this.importBucket(assetsBucketName);
-    console.log('uploadsBucketName',)
+    console.log('uploadBucketName',)
     console.log('assetsBucketName',assetsBucketName)
 
     const lambda = this.createLambda(folderInput,folderOutput,functionPath,assetsBucketName)
 
     
-    const s3UploadsReadWritePolicy = this.createPolicyBucketAccess(assetsBucket.bucketArn)
+    const s3UploadsReadWritePolicy = this.createPolicyBucketAccess(uploadBucket.bucketArn)
     const s3AssetsReadWritePolicy = this.createPolicyBucketAccess(assetsBucket.bucketArn)
 
     lambda.addToRolePolicy(s3UploadsReadWritePolicy);
@@ -42,13 +42,13 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     this.createSnsSubscription(snsTopic,webhookUrl)
     
 
-    this.createS3NotifyToLambda(folderInput,lambda,assetsBucket)
+    this.createS3NotifyToLambda(folderInput,lambda,uploadBucket)
     this.createS3NotifyToSns(folderOutput,snsTopic,assetsBucket)
   }
 
   
   createBucket(bucketName: string): s3.IBucket {
-    const logicalName: string = 'uploadsBucket';
+    const logicalName: string = 'staging';
     const bucket = new s3.Bucket(this, logicalName , {
       bucketName: bucketName,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
