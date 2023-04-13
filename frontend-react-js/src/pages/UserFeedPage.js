@@ -6,7 +6,8 @@ import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
-import ProfileHeading from '../components/ProfileHeading'
+import ProfileHeading from '../components/ProfileHeading';
+import ProfileForm from 'components/ProfileForm';
 
 // [TODO] Authenication
 import {checkAuth, getAccessToken} from '../lib/CheckAuth';
