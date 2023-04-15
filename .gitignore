@@ -6,3 +6,4 @@ node_modules
 awscliv2.zip
 aws/dist/*
 aws/install
+*.zip
