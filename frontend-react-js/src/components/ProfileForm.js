@@ -16,7 +16,7 @@ export default function ProfileForm(props) {
   const s3uploadkey = async (extension)=> {
     console.log('ext',extension)
     try {
-      const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/uploads`
+      const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
       await getAccessToken()
       const access_token = localStorage.getItem("access_token")
       const json = {
@@ -35,6 +35,7 @@ export default function ProfileForm(props) {
       let data = await res.json();
       if (res.status === 200) {
         return data.url
+        console.log("tst", res)
       } else {
         console.log(res)
       }

@@ -10,7 +10,7 @@ def handler(event:, context:)
     { 
       headers: {
         "Access-Control-Allow-Headers": "*, Authorization",
-        "Access-Control-Allow-Origin": "https://3000-seanware-awsbootcampcru-x9lzyqhpil1.ws-us94.gitpod.io", #not good technique to ard code values
+        "Access-Control-Allow-Origin": "https://seanware-awsbootcampcru-b0qayj8zt5a.ws-us94.gitpod.io/", #not good technique to ard code values
         "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
       },
       statusCode: 200
@@ -38,7 +38,7 @@ def handler(event:, context:)
     { 
       headers: {
         "Access-Control-Allow-Headers": "*, Authorization",
-        "Access-Control-Allow-Origin": "https://3000-seanware-awsbootcampcru-x9lzyqhpil1.ws-us94.gitpod.io",
+        "Access-Control-Allow-Origin": "https://seanware-awsbootcampcru-b0qayj8zt5a.ws-us94.gitpod.io/",
         "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
       },
       statusCode: 200, 
