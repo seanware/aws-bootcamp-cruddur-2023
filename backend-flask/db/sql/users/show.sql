@@ -4,6 +4,7 @@ SELECT
       users.uuid,
       users.handle,
       users.display_name,
+      users.cognito_user_id as cognito_user_uuid,
       users.bio,
       (
        SELECT 
