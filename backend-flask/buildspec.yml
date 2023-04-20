@@ -1,5 +1,5 @@
 # Buildspec runs in the build stage of your pipeline.
-#Testing Buildspec file
+#Testing Source
 version: 0.2
 phases:
   install:
