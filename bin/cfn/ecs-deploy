@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+set -e
+CFN_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/template.yaml"
+echo $CFN_PATH
+
+aws cloudformation deploy \
+    --stack-name "AppCluster1" \
+    --s3-bucket 'cruddur-cfn-artifacts-3241'\
+    --template-file $CFN_PATH \
+    --no-execute-changeset \
+    --capabilities CAPABILITY_NAMED_IAM
