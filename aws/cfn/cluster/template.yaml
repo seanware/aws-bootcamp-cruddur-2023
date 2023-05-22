@@ -88,7 +88,7 @@ Resources:
           # KmsKeyId: !Ref KmsKeyId
           Logging: DEFAULT
       ServiceConnectDefaults:
-        Namespace: cruddur
+        Namespace: cruddurCFN
   ALB:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -171,7 +171,7 @@ Resources:
       GroupDescription: Public Facing SG for our Cruddur ALB
       VpcId:
         Fn::ImportValue:
-          !Sub ${NetworkingStack}VpcId
+          !Sub "${NetworkingStack}VpcId"
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 443
@@ -278,3 +278,5 @@ Outputs:
     Value: !Ref BackendTG
     Export:
       Name: !Sub "${AWS::StackName}BackendTGArn"
+  
+      

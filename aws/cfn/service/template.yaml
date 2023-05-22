@@ -104,7 +104,7 @@ Resources:
       PropagateTags: SERVICE
       ServiceConnectConfiguration:
         Enabled: true
-        Namespace: "cruddur"
+        Namespace: "cruddurCFN"
         # TODO - If you want to log
         # LogConfiguration
         Services:
@@ -193,7 +193,7 @@ Resources:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
     Type: AWS::IAM::Role
     Properties:
-      RoleName: CruddurServiceExecutionRole
+      RoleName: CrudServiceExecutionRole
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
