@@ -9,5 +9,5 @@ aws/install
 *.zip
 .aws-sam 
 build.toml 
-.tmp
+.tmp/*
 

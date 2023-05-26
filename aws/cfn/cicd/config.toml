@@ -1,6 +1,6 @@
 [deploy]
 bucket = 'cruddur-cfn-artifacts-3241'
-region = 'us-east-2
+region = 'us-east-2'
 stack_name = 'CrdCicd'
 
 [parameters]
