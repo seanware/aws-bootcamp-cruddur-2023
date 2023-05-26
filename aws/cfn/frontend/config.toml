@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cruddur-cfn-artifacts-3241'
+region = 'us-east-2'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:646349589143:certificate/9f62199f-d484-4e67-b8b9-b27a8d270b28'
+WwwBucketName = 'www.cruddur.com'
+RootBucketName = 'cruddur.com'
