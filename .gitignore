@@ -7,3 +7,5 @@ awscliv2.zip
 aws/dist/*
 aws/install
 *.zip
+.aws-sam 
+build.toml 
