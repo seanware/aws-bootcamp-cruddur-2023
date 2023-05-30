@@ -463,14 +463,18 @@ Update cluster-deploy to use the .toml file. This file will grab parameters for 
 
 Postgres database is in the default VPC and needs to be added to the newly created VPC so the application has access to it
 
+
+create Template and config files
+
 cfn/db/template.yml
 
 cfn/db/config.toml
 
+Create deploy scripts
 
 bin/cfn/db-deploy
 
-generator secure password for postgres DB_Password
+generate secure password for postgres DB_Password
 
 use dt.t4g.micro
 
@@ -479,7 +483,6 @@ SubnetIds must use json to be implemented
 
 Update Systems Manager Parameter Store to add the new Connection URL
 
-cruddur-instance.ctrhhf3ao98o.us-east-2.rds.amazonaws.com
 
 ![RDS Database](./assets/Db_stk.png)
 
