@@ -5,7 +5,7 @@ import ActivityActionReply  from '../components/ActivityActionReply';
 import ActivityActionRepost  from '../components/ActivityActionRepost';
 import ActivityActionLike  from '../components/ActivityActionLike';
 import ActivityActionShare  from '../components/ActivityActionShare';
-import ProfileAvatar from './ProfileAvatar';
+//import ProfileAvatar from './ProfileAvatar';
 
 export default function ActivityItem(props) {
 
