@@ -4,6 +4,7 @@ VALUES
   
   ('Sean Ware', 'sean', 'seanaware@gmail.com', 'MOCK'),
   ('Jacob Coleson', 'jake', 'alterego4891@mail.com', 'MOCK'),
+  ('Mr Freeze', 'ice', 'alterego4891@mail.com', 'MOCK'),
   ('Citizen Gakar', 'Gakar', 'gakar@narn.com', 'MOCK' );
 
 INSERT INTO public.activities (user_uuid, message, expires_at)

@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         'user_display_name' : user['name'],
         'user_emails' : user['email'],
         'user_handle' : user['preferred_username'],
-        'user_cognito_id' : user['sub']
+        'cognito_user_id' : user['sub']
       }
       cur.execute(sql, params)
       conn.commit() 

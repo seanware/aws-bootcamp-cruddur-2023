@@ -28,7 +28,7 @@ export default function ActivityForm(props) {
         method: "POST",
         headers: {
           'Authorization':`Bearer ${access_token}`,
-          'Accept': 'application/json',
+          //'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
