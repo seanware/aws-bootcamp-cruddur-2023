@@ -2,6 +2,7 @@ import './SignupPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
+import FormErrors from 'components/FormErrors';
 
 import { Auth } from 'aws-amplify';
 //import Cookies from 'js-cookie'
@@ -53,10 +54,7 @@ export default function SignupPage() {
     setPassword(event.target.value);
   }
 
-  let el_errors;
-  if (errors){
-    el_errors = <div className='errors'>{errors}</div>;
-  }
+  
 
   return (
     <article className='signup-article'>
@@ -106,7 +104,7 @@ export default function SignupPage() {
               />
             </div>
           </div>
-          {el_errors}
+          <FormErrors errors={errors} />
           <div className='submit'>
             <button type='submit'>Sign Up</button>
           </div>
