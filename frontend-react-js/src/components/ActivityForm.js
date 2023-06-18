@@ -2,7 +2,7 @@ import './ActivityForm.css';
 import React from "react";
 import process from 'process';
 import {ReactComponent as BombIcon} from './svg/bomb.svg';
-import { getAccessToken, checkAuth } from 'lib/CheckAuth';
+import { getAccessToken } from 'lib/CheckAuth';
 
 
 export default function ActivityForm(props) {
