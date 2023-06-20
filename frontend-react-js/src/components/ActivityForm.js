@@ -18,39 +18,24 @@ export default function ActivityForm(props) {
 
   const onsubmit = async (event) => {
     event.preventDefault();
-    try {
-      await getAccessToken()
-      const access_token = localStorage.getItem('access_token')
-      console.log('activityform', access_token)
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
-      console.log('onsubmit payload', message)
-      const res = await fetch(backend_url, {
-        method: "POST",
-        headers: {
-          'Authorization':`Bearer ${access_token}`,
-          //'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: message,
-          ttl: ttl
-        }),
-      });
-      let data = await res.json();
-      if (res.status === 200) {
-        // add activity to the feed
-        props.setActivities(current => [data,...current]);
-        // reset and close the form
-        setCount(0)
-        setMessage('')
-        setTtl('7-days')
-        props.setPopped(false)
-      } else {
-        console.log(res)
-      }
-    } catch (err) {
-      console.log(err);
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
+    const payload_data = {
+      message: message,
+      ttl: ttl
     }
+    post(url,payload_data,{
+        auth: true,
+        setErrors: setErrors,
+        success: function(data){
+          // add activity to the feed
+          props.setActivities(current => [data,...current]);
+          // reset and close the form
+          setCount(0)
+          setMessage('')
+          setTtl('7-days')
+          props.setPopped(false)
+        }
+    })
   }
 
   const textarea_onchange = (event) => {
