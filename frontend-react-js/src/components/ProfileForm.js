@@ -3,7 +3,7 @@ import React from "react";
 import process from 'process';
 import {getAccessToken} from '../lib/CheckAuth';
 import {put} from 'lib/Requests';
-import FormErrors from 'components/FormErrors';
+import FormErrors from './FormErrors';
 
 export default function ProfileForm(props) {
   const [bio, setBio] = React.useState('');

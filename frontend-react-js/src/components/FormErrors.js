@@ -1,5 +1,6 @@
 import './FormErrors.css';
-import FormErrorItem from 'components/FormErrorItem';
+import FormErrorItem from './FormErrorItem';
+//./FormErrorItem;
 
 export default function FormErrors(props) {
   let el_errors = null

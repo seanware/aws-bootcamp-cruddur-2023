@@ -1,20 +1,17 @@
 .activity_item {
   display: flex;
   flex-direction: column;
-  border-bottom: solid 1px rgb(31,36,49);
+  border-bottom: solid 1px rgb(60,54,79);
   overflow: hidden;
-  padding: 16px;
-}
-
-a.activity_item {
-  text-decoration: none;
-}
-a.activity_item:hover {
-  background: rgba(255,255,255,0.15);
+  
 }
 
 .activity_item.clickable:hover {
   cursor: pointer;
+}
+
+.activity_item.clickable:hover {
+  background: rgba(255,255,255,0.15);
 }
 
 .replies {
@@ -28,6 +25,7 @@ a.activity_item:hover {
 .acitivty_main {
   padding: 16px;
 }
+
 .activity_item:last-child {
   border-bottom: none;
 }
@@ -68,10 +66,10 @@ a.activity_item:hover {
   fill: rgb(149,0,255);
 }
 
-activity_item.expanded .activity_content {
+
+.activity_item.expanded .activity_content {
   display: flex;
 }
-
 .activity_item.expanded .activity_content .activity_identity{
   flex-grow: 1;
 }

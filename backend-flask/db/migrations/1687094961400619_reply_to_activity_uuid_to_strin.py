@@ -3,7 +3,7 @@ class ReplyToActivityUuidToStrinMigration:
   def migrate_sql():
     data = """
     ALTER TABLE activities DROP COLUMN reply_to_activity_uuid;
-    ALTER TABLE activities ADD COLUMN reply_to_activity_uuid uuid;
+    ALTER TABLE activities ADD COLUMN reply_to_activity_uuid test;
     """
     return data
   def rollback_sql():
