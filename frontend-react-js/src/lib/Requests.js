@@ -6,8 +6,6 @@ async function request(method,url,payload_data,options){
   }
   let res
   try {
-    await getAccessToken()
-    const access_token = localStorage.getItem("access_token")
     const attrs = {
       method: method,
       headers: {

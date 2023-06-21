@@ -6,3 +6,4 @@ stack_name = 'CrdSrvBackendFlask'
 [parameters]
 EnvFrontendUrl = 'https://drummer-test-app.online'
 EnvBackendUrl = 'https://api.drummer-test-app.online'
+DDBMessageTable = 'CrdDdb-DynamoDBTable-L12ME9PTNSRY'
