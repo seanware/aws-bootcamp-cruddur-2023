@@ -1,6 +1,6 @@
 .message_item {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   overflow: hidden;
   border-bottom: solid 1px rgba(50, 95, 209, 0.808);
   padding: 16px;  
