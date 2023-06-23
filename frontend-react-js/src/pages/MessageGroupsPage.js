@@ -6,6 +6,7 @@ import MessageGroupFeed from '../components/MessageGroupFeed';
 
 // [TODO] Authenication
 import {checkAuth, getAccessToken} from '../lib/CheckAuth';
+import {get} from 'lib/Requests';
 
 export default function MessageGroupsPage() {
   const [messageGroups, setMessageGroups] = React.useState([]);
